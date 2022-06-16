@@ -6,37 +6,62 @@
 //
 
 import UIKit
+import Darwin
 
 class ViewController2: UIViewController {
 
     override func viewDidLoad(){
         super.viewDidLoad()
-
-        typeTextField.isHidden = true
-        sendButtonOutlet.isHidden = true
         apple.isHidden = true
         onion.isHidden = true
         banana.isHidden = true
         blueberry.isHidden = true
         orange.isHidden = true
-        
-        
-        
     }
     
     
    
     @IBOutlet var risultatiButton: UIButton!
-    @IBOutlet var typeTextField: UITextField!
     @IBOutlet var sendButtonOutlet: UIButton!
     @IBOutlet var labelSecond: UILabel!
-    @IBAction func sendButton(_ sender: UIButton) {
-        arrayFruttiUser.append(typeTextField.text!)
-        typeTextField.text = ""
+    
+    var ck4 = 0
+    var ck5 = 0
+    @IBAction func yellowButton(_ sender: UIButton) {
+        if ck5 != 10{
+            arrayFruttiUser[ck5] = "yellow"
+            ck5 += 1
+        }
+        
     }
+    @IBAction func redButton(_ sender: UIButton) {
+        if ck5 != 10{
+            arrayFruttiUser[ck5] = "red"
+            ck5 += 1
+        }
+    }
+    @IBAction func purpleButton(_ sender: UIButton) {
+        if ck5 != 10{
+            arrayFruttiUser[ck5] = "purple"
+            ck5 += 1
+        }
+    }
+    @IBAction func blueButton(_ sender: UIButton) {
+        if ck5 != 10{
+            arrayFruttiUser[ck5] = "blue"
+            ck5 += 1
+        }
+    }
+    @IBAction func orangeButton(_ sender: UIButton) {
+        if ck5 != 10{
+            arrayFruttiUser[ck5] = "orange"
+            ck5 += 1
+        }
+    }
+    
     //variabili
     public var arrayFrutti: [String] = []
-    public var arrayFruttiUser: [String] = []
+    public var arrayFruttiUser: [String] = Array(repeating: "", count: 15)
     
     //timer1 40 sec contatore
     var timer1 : Timer!
@@ -55,8 +80,8 @@ class ViewController2: UIViewController {
             onion.isHidden = true
             blueberry.isHidden = true
             orange.isHidden = true
-            typeTextField.isHidden = true
-            sendButtonOutlet.isHidden = true
+            
+            
             var points = 0
             var ck3 = 0
             for el in arrayFrutti{
@@ -66,6 +91,7 @@ class ViewController2: UIViewController {
                 }
             }
             labelSecond.text = "hai totalizzato \(points) punti!"
+            
             
         }
     }
@@ -78,10 +104,11 @@ class ViewController2: UIViewController {
             
             print("debug 5")
             let r = Int.random(in: 1...5)
+            
             switch r {
             case 1:
-                arrayFrutti.append("apple")
-                
+                arrayFrutti.append("red")
+                ck4 += 1
                 apple.isHidden = false
                 banana.isHidden = true
                 onion.isHidden = true
@@ -89,24 +116,24 @@ class ViewController2: UIViewController {
                 orange.isHidden = true
                 
             case 2:
-                arrayFrutti.append("banana")
-                
+                arrayFrutti.append("yellow")
+                ck4 += 1
                 banana.isHidden = false
                 apple.isHidden = true
                 onion.isHidden = true
                 blueberry.isHidden = true
                 orange.isHidden = true
             case 3:
-                arrayFrutti.append("onion")
-                
+                arrayFrutti.append("purple")
+                ck4 += 1
                 apple.isHidden = true
                 banana.isHidden = true
                 onion.isHidden = false
                 blueberry.isHidden = true
                 orange.isHidden = true
             case 4:
-                arrayFrutti.append("blueberry")
-                
+                arrayFrutti.append("purple")
+                ck4 += 1
                 apple.isHidden = true
                 banana.isHidden = true
                 onion.isHidden = true
@@ -114,7 +141,7 @@ class ViewController2: UIViewController {
                 orange.isHidden = true
             case 5:
                 arrayFrutti.append("orange")
-               
+               ck4 += 1
                 apple.isHidden = true
                 banana.isHidden = true
                 onion.isHidden = true
@@ -128,6 +155,19 @@ class ViewController2: UIViewController {
             print("debug 6")
             timer2.invalidate()
         }
+    }
+    
+    //timer stop game
+    var timer3 : Timer!
+    var ck6 = 0
+    @objc func stopGameTimer(){
+        
+        if ck6 <= 25{
+            ck6 += 1
+        }else{
+            exit(0)
+        }
+        
     }
    
     
@@ -144,19 +184,24 @@ class ViewController2: UIViewController {
     @IBAction func startGameButton(_ sender: UIButton) {
         print("debug 1")
         start1()
+        stopGame()
       
 
     }
     
     
     func start1(){
-        timer1 = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startGame), userInfo: nil, repeats: true)
-        //textfield e send button
-        typeTextField.isHidden = false
-        sendButtonOutlet.isHidden = false
+        
         startGameButtonOutlet.isHidden = true
+        timer1 = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(startGame), userInfo: nil, repeats: true)
+        
         //timer frutti
         timer2 = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(startFrutta), userInfo: nil, repeats: true)
+    }
+    
+    func stopGame(){
+        //timer frutti
+        timer3 = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(stopGameTimer), userInfo: nil, repeats: true)
     }
 
 

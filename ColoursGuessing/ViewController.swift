@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     //attributi
     let text = "Program written by Giulia, this is a demo for didactic purpose, click again to show the rules"
-    let text2 = "Once the image appears, write the colour in the Text Field and press 'send'"
+    let text2 = "Once the image appears, click the corresponding colour button"
     var check = true
     
     //about
@@ -27,15 +27,7 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
