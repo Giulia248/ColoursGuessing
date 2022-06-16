@@ -81,8 +81,8 @@
                                     <action selector="startGameButton:" destination="Eel-xr-43Y" eventType="touchUpInside" id="OIu-Ys-saW"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="type here..." borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-hP-PGK">
-                                <rect key="frame" x="103" y="352" width="223" height="44"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="type here..." borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjG-hP-PGK">
+                                <rect key="frame" x="103" y="346" width="223" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,11 +98,12 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="21"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="sendButton:" destination="Eel-xr-43Y" eventType="touchUpInside" id="WqU-OU-S8U"/>
+                                    <action selector="sendButton:" destination="Eel-xr-43Y" eventType="touchUpInside" id="0n7-J5-eud"/>
+                                    <action selector="startGameButton:" destination="Eel-xr-43Y" eventType="touchUpInside" id="9MA-tR-akO"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="KO8-zV-lWG">
-                                <rect key="frame" x="70" y="99" width="283" height="283"/>
+                                <rect key="frame" x="68" y="92" width="283" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="banana" translatesAutoresizingMaskIntoConstraints="NO" id="Npq-Ym-epm">
@@ -110,7 +111,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="blueberry" translatesAutoresizingMaskIntoConstraints="NO" id="Kca-fP-cky">
-                                <rect key="frame" x="72" y="92" width="283" height="283"/>
+                                <rect key="frame" x="72" y="92" width="283" height="246"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="onion" translatesAutoresizingMaskIntoConstraints="NO" id="TND-DP-QZJ">
@@ -118,9 +119,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="orange" translatesAutoresizingMaskIntoConstraints="NO" id="ehL-AO-uaI">
-                                <rect key="frame" x="22" y="40" width="354" height="354"/>
+                                <rect key="frame" x="20" y="99" width="352" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPZ-4f-BUC">
+                                <rect key="frame" x="20" y="571" width="388" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ag7-kZ-zpj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,16 +138,17 @@
                         <outlet property="apple" destination="KO8-zV-lWG" id="se2-ml-2nY"/>
                         <outlet property="banana" destination="Npq-Ym-epm" id="fRS-qY-NXs"/>
                         <outlet property="blueberry" destination="Kca-fP-cky" id="BzO-8f-rwj"/>
+                        <outlet property="labelSecond" destination="XPZ-4f-BUC" id="AZh-dd-Pzc"/>
                         <outlet property="onion" destination="TND-DP-QZJ" id="bfe-Cn-LYa"/>
                         <outlet property="orange" destination="ehL-AO-uaI" id="kxj-uL-9kX"/>
-                        <outlet property="sendButtonOutlet" destination="jNE-Dx-87A" id="Uaj-5j-ikm"/>
+                        <outlet property="sendButtonOutlet" destination="jNE-Dx-87A" id="ZVk-0o-Xxj"/>
                         <outlet property="startGameButtonOutlet" destination="IjU-OW-1x8" id="7lI-KY-q49"/>
-                        <outlet property="stringTextField" destination="pjG-hP-PGK" id="dl7-qq-2tl"/>
+                        <outlet property="typeTextField" destination="pjG-hP-PGK" id="Dih-TF-Mfz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WnW-P6-Eiu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-241.12149532710279" y="-1949.0280777537798"/>
+            <point key="canvasLocation" x="-241.12149532710279" y="-1967.1706263498922"/>
         </scene>
     </scenes>
     <resources>
